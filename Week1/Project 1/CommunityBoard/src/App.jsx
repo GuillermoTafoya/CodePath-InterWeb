@@ -27,7 +27,7 @@ function App() {
     // Create an array to hold the pokemon
     const pokemonArray = []
 
-    // Loop through the first 10 pokemon
+    // Loop through the first 151 pokemon
     for (let i = 1; i <= 151; i++) {
       // fetch the pokemon
       const response = await axios(`https://pokeapi.co/api/v2/pokemon/${i}`)
