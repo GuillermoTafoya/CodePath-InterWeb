@@ -1,0 +1,43 @@
+main {
+  text-align: center;
+  vertical-align: center;
+  line-height: 100vh
+}
+
+.App{
+  color: #F9F9F9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  overflow-y: scroll;
+  background: #1F1F1F;
+  // Make the scrollbar invisible
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-flex{
+  display:flex;
+  direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+

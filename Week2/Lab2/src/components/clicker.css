@@ -1,0 +1,11 @@
+.samosa{
+  height: 50vh;
+  width: 40vh;
+  transition: transform .2s; 
+  margin-bottom: 2rem;
+}
+
+.samosa:hover{
+  transform: scale(1.1);
+}
+}
