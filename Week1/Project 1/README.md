@@ -1,10 +1,10 @@
-# Web Development Project 1 - *Name of App Here*
+# Web Development Project 1 - *Pokemon Community App*
 
-Submitted by: **Your Name Here**
+Submitted by: **Guillermo Tafoya**
 
-This web app: **insert description**
+This web app: **Uses the pokemon API to show the first 151**
 
-Time spent: **X** hours spent in total
+Time spent: **0.2** hours spent in total
 
 ## Required Features
 
