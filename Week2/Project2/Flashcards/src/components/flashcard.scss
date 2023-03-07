@@ -1,9 +1,12 @@
 .card{
     // Card basis
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
+    // Font size to fit the conntainer
+    font-size: 80%;
+
     padding: 1em;
     margin: 2em;
     text-align: center;
@@ -30,6 +33,19 @@
     &:hover{
         background:rgba(67, 140, 97, 0.5);
     }
+    // Move the hue-rotate to the card class (difficulty)
+    &-easy{
+        @extend .back;
+        filter: hue-rotate(0deg);
+    }
+    &-medium{
+        @extend .back;
+        filter: hue-rotate(180deg);
+    }
+    &-hard{
+        @extend .back;
+        filter: hue-rotate(90deg);
+    }
 }
 
 .front{
@@ -39,4 +55,18 @@
     &:hover{
         background:rgba(67, 72, 140, 0.5);
     }
+    // Move the hue-rotate to the card class (difficulty)
+    &-easy{
+        @extend .front;
+        filter: hue-rotate(0deg);
+    }
+    &-medium{
+        @extend .front;
+        filter: hue-rotate(180deg);
+    }
+    &-hard{
+        @extend .front;
+        filter: hue-rotate(90deg);
+    }
 }
+
