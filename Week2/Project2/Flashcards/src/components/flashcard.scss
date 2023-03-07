@@ -1,0 +1,42 @@
+.card{
+    // Card basis
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    padding: 1em;
+    margin: 2em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 30vw;
+    height: 15vw;
+    border-radius: 5px;
+    color: #fff;
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    &:hover{
+        transform: scale(1.02);
+        border: 1px solid rgba( 255, 255, 255, 0.5 );
+    }
+}
+
+.back{
+    @extend .card;
+    box-shadow: 0 8px 32px 0 rgba( 31, 135, 130, 0.37 );
+    background: rgba(67, 140, 97, 0.25); 
+    &:hover{
+        background:rgba(67, 140, 97, 0.5);
+    }
+}
+
+.front{
+    @extend .card;
+    box-shadow: 0 8px 32px 0 rgba(86, 31, 135, 0.37);
+    background: rgba(67, 72, 140, 0.25);
+    &:hover{
+        background:rgba(67, 72, 140, 0.5);
+    }
+}

@@ -1,0 +1,10 @@
+.mainButton {
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    box-shadow: 0 5px 10px 0 rgba(123, 128, 128, 0.37);
+    background: rgba(118, 107, 121, 0.25); 
+    width: 10vw;
+    
+}
