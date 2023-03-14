@@ -26,13 +26,9 @@ The following **optional** features are implemented:
 
 <img src='https://github.com/GuillermoTafoya/CodePath-InterWeb/blob/main/Week2/Project2/project2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-## Notes
-
-Describe any challenges encountered while building the app.
-
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2023] [Guillermo Tafoya]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
