@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://github.com/GuillermoTafoya/CodePath-InterWeb/blob/main/Week1/Project%201/project1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/GuillermoTafoya/CodePath-InterWeb/blob/main/Week1/Project1/project1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
