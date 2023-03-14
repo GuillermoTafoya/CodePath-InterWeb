@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './App.scss'
+import './components//button.scss'
 import Flashcard from './components/flashcard'
-import NewRandomFlashcardButton from './components/newRandomFlashcardButton'
+import toast, { Toaster } from 'react-hot-toast';
+
 
 function App() {
   const questionsAndAnswers = [
@@ -21,12 +23,97 @@ function App() {
     {question: "What is a pure function?", answer: "A pure function is a function which: Given the same input, will always return the same output. Produces no side effects.", difficulty: "hard"},
   ]
   const [flashcard, setFlashcard] = useState(questionsAndAnswers[0])
+  const [currentIdx, setCurrentIdx] = useState(0)
+  const [currentStreak, setCurrentStreak] = useState(0)
+  const [longestStreak, setLongestStreak] = useState(0)
+  const nextFlashcard = () => {
+    if (currentIdx === questionsAndAnswers.length - 1) {
+      setCurrentIdx(0)
+      setFlashcard(questionsAndAnswers[0])
+    } else {
+      setCurrentIdx(currentIdx + 1)
+      setFlashcard(questionsAndAnswers[currentIdx + 1])
+    }
+  }
+  const prevFlashcard = () => {
+    if (currentIdx === 0) {
+      setCurrentIdx(questionsAndAnswers.length - 1)
+      setFlashcard(questionsAndAnswers[questionsAndAnswers.length - 1])
+    } else {
+      setCurrentIdx(currentIdx - 1)
+      setFlashcard(questionsAndAnswers[currentIdx - 1])
+    }
+  }
+  const shuffleFlashcards = () => {
+    const shuffledFlashcards = questionsAndAnswers.sort(() => Math.random() - 0.5)
+    setFlashcard(shuffledFlashcards)
+    toast.success('Flashcards shuffled!')
+    setCurrentIdx(0)
+    setFlashcard(shuffledFlashcards[0])
+    setLongestStreak(currentStreak>longestStreak?currentStreak:longestStreak)
+    setCurrentStreak(0)
+  }
+  const levensteinDistance = (str1, str2) => {
+    const track = Array(str2.length + 1).fill(null).map(() => Array(str1.length + 1).fill(null))
+    for (let i = 0; i <= str1.length; i += 1) {
+      track[0][i] = i
+    }
+    for (let j = 0; j <= str2.length; j += 1) {
+      track[j][0] = j
+    }
+    for (let j = 1; j <= str2.length; j += 1) {
+      for (let i = 1; i <= str1.length; i += 1) {
+        const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1
+        track[j][i] = Math.min(
+          track[j][i - 1] + 1, // deletion
+          track[j - 1][i] + 1, // insertion
+          track[j - 1][i - 1] + indicator, // substitution
+        )
+      }
+    }
+    return track[str2.length][str1.length]
+  }
+  const checkAnswer = () => {
+    const answerInput = document.querySelector('.answerInput input')
+    if (levensteinDistance(answerInput.value, flashcard.answer) <= 5) { // 5 is the max number of typos allowed
+      toast.success('Correct!')
+      setCurrentStreak(currentStreak+1)
+    } else {
+      toast.error('Incorrect!')
+      setLongestStreak(currentStreak>longestStreak?currentStreak:longestStreak)
+      setCurrentStreak(0)
+    }
+    answerInput.value = ''
+  }
+
   return (
     <div className="App">
       <h1>React Flashcards</h1>
       <p>How well do you know React?</p>
+      <p>{currentIdx+1+"/"+questionsAndAnswers.length}</p>
+      <p>{"Current streak: "+currentStreak}</p>
+      <p>{"Longest streak: "+longestStreak}</p>
       <Flashcard flashcard={flashcard} />
-      <NewRandomFlashcardButton setFlashcards={setFlashcard} flashcards={questionsAndAnswers} />
+      <div className='answerInput'>
+        <input type="text" placeholder="Type your answer here" /> 
+        <button onClick={checkAnswer}>Check</button>
+      </div>
+      <div className="buttons">
+        <button className="mainButton" onClick={prevFlashcard}>Prev</button>
+        <button className="mainButton" onClick={nextFlashcard}>Next</button>
+        <button className='mainButton' onClick={shuffleFlashcards}>Shuffle</button>
+      </div>
+      <Toaster
+                    reverseOrder = {true}
+                    toastOptions={{
+                        className: 'Toaster',
+                        duration: 3000,
+                        style: {
+                            background: '#363636',
+                            color: '#fff',
+                        }
+                    }}
+                />
     </div>
   )
 }
