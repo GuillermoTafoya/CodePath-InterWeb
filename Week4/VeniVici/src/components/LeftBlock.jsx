@@ -1,9 +1,22 @@
+import React, { useEffect } from 'react'
 import Block from './Block'
 export default function LeftBlock(props) {
+    useEffect(() => {
+        // scroll the past-data div to top, to show the latest data
+        const pastDataDiv = document.getElementById('past-data')
+        pastDataDiv.scrollTop = 0
+        
+        console.log("here")
+    }, [props.pastData])
+
+
+
     return (
         <Block className="w-20 past-data-container">
             <h2>What have we seen so far?</h2>
+            <div className='past-data' id='past-data'>
             {
+                
                 props.pastData.map((data, index) => {
                     return (
                         <div key={index}>
@@ -12,8 +25,8 @@ export default function LeftBlock(props) {
                         </div>
                     )
                 })
-
             }
+            </div>
         </Block>
     )
 }

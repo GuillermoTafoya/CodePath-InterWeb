@@ -25,7 +25,7 @@ function App() {
         return;
       }
       if (data){
-        setPastData([...pastData, data])
+        setPastData([data,...pastData])
       }
       setData(data)
     })
