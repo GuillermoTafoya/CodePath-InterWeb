@@ -1,0 +1,46 @@
+@import '../utils/_variables';
+
+.glassmorphism{
+    background: $aqua-25;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.block{
+    @extend .glassmorphism;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.w-50{
+    width: 50%;
+}
+
+.w-20{
+    width: 20%;
+}
+
+.result-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container{
+    width: 55%;
+    height: 55%;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+}
