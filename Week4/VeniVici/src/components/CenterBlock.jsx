@@ -16,7 +16,9 @@ export default function CenterBlock(props) {
         if (props.data) {
             const tags = []
             props.data[0].breeds[0].temperament.split(',').forEach((tag) => {
-                tags.push(tag)
+                // trim and lowercase the tag
+                const trimmedTag = tag.trim().toLowerCase()
+                tags.push(trimmedTag)
             }
             )
             setTags(tags)
@@ -35,7 +37,7 @@ export default function CenterBlock(props) {
                     {tags.map((tag, index) => <Tag text={tag} onClick={() => handleTagClick(index)} key={index} />)}
                 </div>
                 <div className="image-container">
-                    <img src={props.data[0].url} alt="NASA-image" className='image'/>
+                    <img src={props.data[0].url} alt="cat-image" className='image'/>
                 </div>
                 
             </div>

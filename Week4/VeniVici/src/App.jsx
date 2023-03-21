@@ -17,7 +17,9 @@ function App() {
       }
       // Check if any of the tags are banned
       const tags = data[0].breeds[0].temperament.split(',')
-      const bannedTagFound = tags.some((tag) => bannedTags.includes(tag))
+      // trim and lowercase the tag
+      const trimmedTags = tags.map((tag) => tag.trim().toLowerCase())
+      const bannedTagFound = trimmedTags.some((tag) => bannedTags.includes(tag))
       if (bannedTagFound) {
         retrieveData(recursionDepth + 1)
         return;
