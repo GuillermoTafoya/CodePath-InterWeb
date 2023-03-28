@@ -1,0 +1,72 @@
+@import "./utils/_variables.scss";
+
+#root {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.App {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url("./assets/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  // make bg image darker
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bg-color;
+    opacity: 0.6;
+  }
+}
+
+.header{
+  background: linear-gradient(45deg, $aqua 0%, $cream 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.btn{
+  background: linear-gradient(45deg, $aqua 0%, $cream 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 700; 
+  border: 3px solid $aqua;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  &:hover{
+    box-shadow: 0 0 10px 0 $aqua;
+  }
+}
+
+.explanaition{
+  font-size: 0.5rem;
+  margin: 0.5rem 2rem;
+}
